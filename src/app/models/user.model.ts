@@ -1,7 +1,8 @@
 export interface User {
   name: string;
-  lastName: string;
   user: string;
+  phone: number;
+  lastName: string;
   password: string;
   typeUser: string;
 }
