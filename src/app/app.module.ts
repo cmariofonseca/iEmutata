@@ -16,12 +16,14 @@ import { ShowNotesComponent } from './components/show-notes/show-notes.component
 
 // Routes
 import { APP_ROUTING } from './routes/route.routes';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
-    ShowNotesComponent
+    ShowNotesComponent,
+    RegisterComponent
   ],
   imports: [
     APP_ROUTING,
