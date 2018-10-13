@@ -1,70 +1,70 @@
 .auth {
-    width: 100%;
-    height: 100 vh;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .auth .imagen {
-    width: 50%;
-  }
-  
-  .auth .imagen > img {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .auth .login {
-    width: 50%;
-  }
-  
-  .auth .login .title {
-    background-color: #00a650;
-    color: white;
-    width: 100%;
-    height: 10%;
-    padding-top: 3%;
-    text-align: center;
-    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-  }
-  
-  .auth .login .logo {
-    display: flex;
-    justify-content: center;
-    margin: 20px auto;
-    width: 100%;
-    height: 150px;
-  }
-  
-  .auth .login .logo > img {
-    /* border: 1px solid red; */
-    width: 150px;
-    height: 150px;
-  }
-  
-  .auth .login .socialMedia {
-    display: inline-flex;
-    justify-content: space-around;
-    width: 100%;
-    height: 50px;
-  }
-  
-  .form {
-    border: 1px solid ghostwhite;
-    box-shadow: 0 0 1em gainsboro;
-    width: 400px;
-    margin: 50px auto;
-    padding: 15px 25px;
-    text-align: center;
-    position: relative;
-  }
-  
-  .socialMediaButtons {
-    width: 50px;
-    height: 50px;
-  }
-  
-  .socialMediaButtons img {
-    width: 100%;
-    height: 100%;
-  }
+  width: 100%;
+  height: 100 vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.auth .imagen {
+  width: 50%;
+}
+
+.auth .imagen>img {
+  width: 100%;
+  height: 100%;
+}
+
+.auth .login {
+  width: 50%;
+}
+
+.auth .login .title {
+  background-color: #00a650;
+  color: white;
+  width: 100%;
+  height: 10%;
+  padding-top: 3%;
+  text-align: center;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+}
+
+.auth .login .logo {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  width: 100%;
+  height: 150px;
+}
+
+.auth .login .logo>img {
+  /* border: 1px solid red; */
+  width: 150px;
+  height: 150px;
+}
+
+.auth .login .socialMedia {
+  display: inline-flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 50px;
+}
+
+.form {
+  border: 1px solid ghostwhite;
+  box-shadow: 0 0 1em gainsboro;
+  width: 400px;
+  margin: 50px auto;
+  padding: 15px 25px;
+  text-align: center;
+  position: relative;
+}
+
+.socialMediaButtons {
+  width: 50px;
+  height: 50px;
+}
+
+.socialMediaButtons img {
+  width: 100%;
+  height: 100%;
+}
