@@ -12,18 +12,18 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 // Components
 import { AppComponent } from './app.component';
 import { AuthComponent } from './components/auth/auth.component';
+import { RegisterComponent } from './components/register/register.component';
 import { ShowNotesComponent } from './components/show-notes/show-notes.component';
 
 // Routes
 import { APP_ROUTING } from './routes/route.routes';
-import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
-    ShowNotesComponent,
-    RegisterComponent
+    RegisterComponent,
+    ShowNotesComponent
   ],
   imports: [
     APP_ROUTING,
