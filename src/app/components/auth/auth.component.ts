@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { RegisterService } from 'src/app/services/register.service';
 
 @Component({
   selector: 'app-auth',
@@ -11,20 +12,22 @@ export class AuthComponent implements OnInit {
   email: string;
   password: string;
 
-  constructor(public authService: AuthService) { }
+  constructor(public authSvc: AuthService, private registerSvc: RegisterService) { }
 
   ngOnInit() { }
 
   signup() {
-    this.authService.signup(this.email, this.password);
+    this.authSvc.signup(this.email, this.password);
     this.email = this.password = '';
   }
 
   login() {
-    this.authService.login(this.email, this.password);
+    this.authSvc.login(this.email, this.password);
     this.email = this.password = '';
   }
 
-  register() { }
+  register() {
+    this.registerSvc.registerOfUser();
+  }
 
 }
