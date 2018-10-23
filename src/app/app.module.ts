@@ -11,11 +11,11 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 // Components
 import { AppComponent } from './app.component';
-import { AuthComponent } from './components/auth/auth.component';
-import { ShowNotesComponent } from './components/show-notes/show-notes.component';
+import { AuthComponent } from './view/auth/auth.component';
+import { ShowNotesComponent } from './view/show-notes/show-notes.component';
 
 // Routes
-import { APP_ROUTING } from './routes/route.routes';
+import { APP_ROUTING } from './controller/route.routes';
 
 @NgModule({
   declarations: [
