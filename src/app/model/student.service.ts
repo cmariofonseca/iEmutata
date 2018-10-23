@@ -3,7 +3,7 @@ import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
-import { User, Student } from '../models/user.model';
+import { User, Student } from '../controller/user.model';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 
 @Injectable({

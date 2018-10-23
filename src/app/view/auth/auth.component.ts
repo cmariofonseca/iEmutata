@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
-import { RegisterService } from 'src/app/services/register.service';
+import { AuthService } from 'src/app/model/auth.service';
+import { RegisterService } from 'src/app/model/register.service';
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css']
 })
+
 export class AuthComponent implements OnInit {
 
   email: string;
