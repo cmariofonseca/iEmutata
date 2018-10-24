@@ -2,15 +2,14 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { AuthService } from './auth.service';
-import { User, Student } from '../controller/user.model';
+import { User, Student } from '../controller/user.controller';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class StudentService {
+export class StudentModel {
 
   students: Observable<Student[]>;
   studentsID: Observable<string[]>;
@@ -18,7 +17,6 @@ export class StudentService {
 
   constructor(
     private router: Router,
-    private authSvc: AuthService,
     private afs: AngularFirestore) {
     this.studentsCollection = this.afs.collection<Student>('students');
     this.students = this.studentsCollection.snapshotChanges().pipe(

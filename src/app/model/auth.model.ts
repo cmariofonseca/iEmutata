@@ -8,7 +8,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
   providedIn: 'root'
 })
 
-export class AuthService {
+export class AuthModel {
 
   user: Observable<firebase.User>;
   userUid: string;
