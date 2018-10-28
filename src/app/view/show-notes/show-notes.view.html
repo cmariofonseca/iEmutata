@@ -1,62 +1,147 @@
-<p>
-    Aquí va el componente NOTAS
-  </p>
-  <button (click)="logout()" type="button" class="btn btn-outline-danger">cerrar sesion</button>
-  <div class="notes">
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Apellido</th>
-          <th scope="col">Nota 20%</th>
-          <th scope="col">Nota 20%</th>
-          <th scope="col">Nota 20%</th>
-          <th scope="col">Nota 20%</th>
-          <th scope="col">Nota 20%</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Alberto</td>
-          <td>Zapata</td>
-          <td>#</td>
-          <td>#</td>
-          <td>#</td>
-          <td>#</td>
-          <td>#</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Adriana</td>
-          <td>Velez</td>
-          <td>#</td>
-          <td>#</td>
-          <td>#</td>
-          <td>#</td>
-          <td>#</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Maria</td>
-          <td>Arango</td>
-          <td>#</td>
-          <td>#</td>
-          <td>#</td>
-          <td>#</td>
-          <td>#</td>
-        </tr>
-        <tr>
-          <th scope="row">4</th>
-          <td>Juan</td>
-          <td>Saldarriaga</td>
-          <td>#</td>
-          <td>#</td>
-          <td>#</td>
-          <td>#</td>
-          <td>#</td>
-        </tr>
-      </tbody>
-    </table>
+<div class="showNotes">
+    <div class="info">
+      <div class="institution">
+        <img src="/assets/logo.jpg" alt="" srcset="">
+        <p>Institución Educativa Mutata</p>
+      </div>
+      <div class="student">
+        <button type="button" class="btn btn-info">Información</button>
+        <button type="button" class="btn btn-info">Calendario</button>
+        <button type="button" class="btn btn-info">Eventos</button>
+        <button type="button" class="btn btn-info">Reuniones</button>
+        <button type="button" class="btn btn-info">Eventos</button>
+      </div>
+    </div>
+    <div class="viewStudent">
+      <div class="logout">
+        <div class="btn-group">
+          <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Materias
+          </button>
+          <div class="dropdown-menu">
+            <a (click)="subject = 'maths'" class="dropdown-item">Matematicas</a>
+            <a (click)="subject = 'social'" class="dropdown-item">Sociales</a>
+            <a (click)="subject = 'sciences'" class="dropdown-item">Ciencias</a>
+            <a (click)="subject = 'spanish'" class="dropdown-item">Español</a>
+          </div>
+        </div>
+        <button type="button" class="btn btn-outline-danger">Salir de la aplicación</button>
+      </div>
+      <div class="notes">
+        <h3>Software de gestion escolar</h3>
+        <div class="student">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Identificación</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Grado</th>
+                <th scope="col">Año</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1001</th>
+                <td>Manuela</td>
+                <td>Osorio Velez</td>
+                <td>8-B</td>
+                <td>2018</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="view">
+          <table *ngIf="!subject" class="table">
+            <thead>
+              <tr>
+                <th scope="col">Asignatura</th>
+                <th scope="col">Primer periodo</th>
+                <th scope="col">Segundo periodo</th>
+                <th scope="col">Tercer periodo</th>
+                <th scope="col">Cuarto periodo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Matematicas</th>
+                <td>3.8</td>
+                <td>2.9</td>
+                <td>3.1</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <th scope="row">Sociales</th>
+                <td>3.7</td>
+                <td>4.9</td>
+                <td>4.1</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <th scope="row">Ciencias</th>
+                <td>3.1</td>
+                <td>3.0</td>
+                <td>3.3</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <th scope="row">Español</th>
+                <td>3.1</td>
+                <td>2.7</td>
+                <td>3.9</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+          <table *ngIf="subject === 'maths'" class="table">
+            <thead>
+              <tr>
+                <th scope="col">{{ subject }}</th>
+                <th scope="col">20 %</th>
+                <th scope="col">20 %</th>
+                <th scope="col">15 %</th>
+                <th scope="col">15 %</th>
+                <th scope="col">30 %</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Examenes</th>
+                <td>3.8</td>
+                <td>2.9</td>
+                <td>3.1</td>
+                <td>3.1</td>
+                <td>2.7</td>
+              </tr>
+              <tr>
+                <th scope="row">Exposiciones</th>
+                <td>3.7</td>
+                <td>4.9</td>
+                <td>4.1</td>
+                <td>4.1</td>
+                <td>3.9</td>
+              </tr>
+              <tr>
+                <th scope="row">Tareas</th>
+                <td>3.1</td>
+                <td>3.0</td>
+                <td>3.3</td>
+                <td>3.3</td>
+                <td>5.0</td>
+              </tr>
+              <tr>
+                <th scope="row">Trabajo en clase</th>
+                <td>3.1</td>
+                <td>2.7</td>
+                <td>3.9</td>
+                <td>3.9</td>
+                <td>4.0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
+    
