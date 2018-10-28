@@ -1,7 +1,7 @@
+import { AuthComponent } from './auth.controller';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthComponent } from '../view/auth/auth.view';
-import { RegisterComponent } from '../view/register/register.view';
-import { ShowNotesComponent } from '../view/show-notes/show-notes.view';
+import { RegisterComponent } from './register.controller';
+import { ShowNotesComponent } from './show-notes.controller';
 
 const route: Routes = [
   { path: 'auth', component: AuthComponent },
