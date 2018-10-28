@@ -9,6 +9,8 @@ import { AuthModel } from 'src/app/model/auth.model';
 
 export class ShowNotesComponent implements OnInit {
 
+  subject: string;
+
   constructor(public auth: AuthModel) { }
 
   ngOnInit() { }
