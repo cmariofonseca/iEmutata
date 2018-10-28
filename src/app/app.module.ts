@@ -11,9 +11,9 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 // Components
 import { AppComponent } from './app.component';
-import { AuthComponent } from './view/auth/auth.view';
-import { RegisterComponent } from './view/register/register.view';
-import { ShowNotesComponent } from './view/show-notes/show-notes.view';
+import { AuthComponent } from './controller/auth.controller';
+import { RegisterComponent } from './controller/register.controller';
+import { ShowNotesComponent } from './controller/show-notes.controller';
 
 // Routes
 import { APP_ROUTING } from './controller/route.controller';
