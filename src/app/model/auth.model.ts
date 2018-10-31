@@ -27,7 +27,11 @@ export class AuthModel {
 
   login(email: string, password: string) {
     this.firebaseAuth.auth.signInWithEmailAndPassword(email, password).then(value => {
-      this.router.navigateByUrl('/show_notes');
+      if (value.user.uid === 'yvU6To0yR7Oy9P6ExcJxNoQWhPm2') {
+        this.router.navigateByUrl('/entry_notes');
+      } else {
+        this.router.navigateByUrl('/show_notes');
+      }
       this.observer();
     }).catch(error => {
       // message error
@@ -46,7 +50,7 @@ export class AuthModel {
   observer(): string {
     let newUser: firebase.User;
     this.firebaseAuth.auth.onAuthStateChanged(user => {
-      if (user.uid) { this.userUid = user.uid; }
+      if (user) { this.userUid = user.uid; }
       return newUser = user;
     });
     return this.userUid;

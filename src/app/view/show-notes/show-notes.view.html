@@ -9,7 +9,7 @@
         <button type="button" class="btn btn-info">Calendario</button>
         <button type="button" class="btn btn-info">Eventos</button>
         <button type="button" class="btn btn-info">Reuniones</button>
-        <button type="button" class="btn btn-info">Eventos</button>
+        <button type="button" class="btn btn-info">Uniformes</button>
       </div>
     </div>
     <div class="viewStudent">
@@ -26,7 +26,7 @@
             <a (click)="subject = 'spanish'" class="dropdown-item">Español</a>
           </div>
         </div>
-        <button type="button" class="btn btn-outline-danger">Salir de la aplicación</button>
+        <button (click)="logout()" type="button" class="btn btn-outline-danger">Salir de la aplicación</button>
       </div>
       <div class="notes">
         <h3>Software de gestion escolar</h3>
@@ -144,4 +144,4 @@
       </div>
     </div>
   </div>
-    
+  

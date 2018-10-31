@@ -15,8 +15,8 @@ export class RegisterModel {
   private usersCollection: AngularFirestoreCollection<User>;
 
   constructor(
-    private afs: AngularFirestore,
-    private router: Router) {
+    private router: Router,
+    private afs: AngularFirestore) {
     this.usersCollection = this.afs.collection<User>('users');
     this.users = this.usersCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
@@ -31,7 +31,7 @@ export class RegisterModel {
   }
 
   registerOfUser() {
-    this.router.navigateByUrl('/register');
+    this.router.navigateByUrl('/entry_notes');
   }
 
   createUsers(user: User) {
