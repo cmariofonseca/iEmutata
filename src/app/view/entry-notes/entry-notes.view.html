@@ -1,0 +1,94 @@
+<div class="showNotes">
+    <div class="info">
+      <div class="institution">
+        <img src="/assets/logo.jpg" alt="" srcset="">
+        <p>Institución Educativa Mutata</p>
+      </div>
+      <div class="student">
+        <button type="button" class="btn btn-info">Información</button>
+        <button type="button" class="btn btn-info">Calendario</button>
+        <button type="button" class="btn btn-info">Eventos</button>
+        <button type="button" class="btn btn-info">Reuniones</button>
+        <button type="button" class="btn btn-info">Uniformes</button>
+      </div>
+    </div>
+    <div class="viewStudent">
+      <div class="logout">
+        <div *ngIf="studentsList" class="input-group mb-3">
+          <select class="custom-select" id="inputGroupSelect01" (change)="selectedStudent(student)">
+            <option selected>Listado de estudiantes</option>
+            <option *ngFor="let student of studentsList" value="student">
+              {{ student.name }} {{ student.lastName }}
+            </option>
+          </select>
+        </div>
+        <button (click)="logout()" type="button" class="btn btn-outline-danger">Salir de la aplicación</button>
+      </div>
+      <div class="notes">
+        <h3>Software de gestion escolar</h3>
+        <div class="student">
+        </div>
+        <div class="view">
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="inputState">Asignatura</label>
+                <select class="form-control">
+                  <option selected>Seleccionar</option>
+                  <option value="maths">Matemáticas</option>
+                  <option value="social">Sociales</option>
+                  <option value="spanish">Español</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputState">Periodo academico</label>
+                <select class="form-control">
+                  <option selected>Seleccionar</option>
+                  <option value="first">Primero</option>
+                  <option value="second">Segundo</option>
+                  <option value="third">Tercero</option>
+                  <option value="quarter">Cuarto</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4">
+                <label></label>
+                <div class="alert alert-info" role="alert">
+                  Nota definitiva: {{ totalNote | number: '1.0-1' }}
+                </div>
+              </div>
+            </div>
+          </form>
+          <br><br>
+          <div class="form-row">
+            <div class="form-group col-md-2">
+              <label>Talleres</label>
+              <input [(ngModel)]="noteOne" type="number" class="form-control">
+            </div>
+            <div class="form-group col-md-2">
+              <label>Examenes</label>
+              <input [(ngModel)]="noteTwo" type="number" class="form-control">
+            </div>
+            <div class="form-group col-md-2">
+              <label>Exposiciones</label>
+              <input [(ngModel)]="noteThree" type="number" class="form-control">
+            </div>
+            <div class="form-group col-md-2">
+              <label>Tareas</label>
+              <input [(ngModel)]="noteFour" type="number" class="form-control">
+            </div>
+            <div class="form-group col-md-2">
+              <label>Quices</label>
+              <input [(ngModel)]="noteFive" type="number" class="form-control">
+            </div>
+            <div class="form-group col-md-2">
+              <label></label>
+              <button (click)="averageNotes()" type="button" class="btn btn-outline-info">
+                Promediar nota
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

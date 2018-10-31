@@ -10,6 +10,19 @@ export interface User {
 export interface Student {
   name: string;
   phone: number;
-  lastName: string;
   userID: string;
+  lastName: string;
+  subjects: Subject[];
 }
+
+interface Subject {
+  name: string;
+  periods: Period[];
+}
+
+interface Period {
+  name: string;
+  notes: number[];
+}
+
+

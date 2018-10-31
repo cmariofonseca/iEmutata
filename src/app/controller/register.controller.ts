@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
     this.auth.observer();
     this.user = {
       name: '',
-      phone: 0,
+      phone: undefined,
       userID: '',
       lastName: '',
       typeUser: '',
@@ -43,7 +43,6 @@ export class RegisterComponent implements OnInit {
       typeUser: '',
       studentDoc: ''
     };
-    this.router.navigateByUrl('/show_notes');
   }
 
 }

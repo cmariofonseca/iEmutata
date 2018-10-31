@@ -12,7 +12,6 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
 export class StudentModel {
 
   students: Observable<Student[]>;
-  studentsID: Observable<string[]>;
   private studentsCollection: AngularFirestoreCollection<Student>;
 
   constructor(
@@ -21,14 +20,8 @@ export class StudentModel {
     this.studentsCollection = this.afs.collection<Student>('students');
     this.students = this.studentsCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
-        const data = a.payload.doc.data() as User;
+        const data = a.payload.doc.data() as Student;
         return {...data };
-      }))
-    );
-    this.studentsID = this.studentsCollection.snapshotChanges().pipe(
-      map(actions => actions.map(a => {
-        const id = a.payload.doc.id;
-        return id;
       }))
     );
   }
@@ -37,8 +30,8 @@ export class StudentModel {
     return this.students;
   }
 
-  listStudentsID(): Observable<string[]> {
-    return this.studentsID;
+  createStudent(student: Student): void {
+    this.studentsCollection.add(student);
   }
 
 }

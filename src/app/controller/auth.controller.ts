@@ -13,17 +13,17 @@ export class AuthComponent implements OnInit {
   email: string;
   password: string;
 
-  constructor(public auth: AuthModel, private registerMdl: RegisterModel) { }
+  constructor(public authMdl: AuthModel, private registerMdl: RegisterModel) { }
 
   ngOnInit() { }
 
   signup() {
-    this.auth.signup(this.email, this.password);
+    this.authMdl.signup(this.email, this.password);
     this.email = this.password = '';
   }
 
   login() {
-    this.auth.login(this.email, this.password);
+    this.authMdl.login(this.email, this.password);
     this.email = this.password = '';
   }
 
