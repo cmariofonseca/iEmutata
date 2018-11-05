@@ -1,75 +1,76 @@
 <div class="auth">
 
-  <div class="imagen">
-    <img src="/assets/iemutata.jpg">
-  </div>
-
-  <div class="login">
-
-    <div class="title">
-      <h2>¡Bienvenido! Institución Educativa Mutatá</h2>
+    <div class="imagen">
+      <img src="/assets/iemutata.jpg">
     </div>
-
-    <div class="logo">
-      <img src="/assets/logo.jpg" alt="" srcset="">
-    </div>
-
-    <div class="form">
-      <form (ngModel)="register()">
-        <div class="form-group row">
-          <input name="email" [(ngModel)]="email" type="text" class="form-control" placeholder="Email" required>
+  
+    <div class="login">
+  
+      <div class="title">
+        <h2>¡Bienvenido! Institución Educativa Mutatá</h2>
+      </div>
+  
+      <div class="logo">
+        <img src="/assets/logo.jpg" alt="" srcset="">
+      </div>
+  
+      <div class="form">
+        <form>
+          <div class="form-group row">
+            <input name="email" [(ngModel)]="email" type="text" class="form-control" placeholder="Email" required>
+          </div>
+          <div class="form-group row">
+            <input name="password" [(ngModel)]="password" type="password" class="form-control" placeholder="Contraseña mayor a 6 caracteres"
+              required>
+          </div>
+          <button (click)="signup()" style="margin-right: 7px" class="btn btn-primary" type="submit" data-toggle="modal"
+            data-target="#exampleModal">Crear cuenta
+          </button>
+          <button (click)="login()" style="margin-left: 7px" class="btn btn-outline-success" type="submit">Ingresar</button>
+        </form>
+      </div>
+  
+      <div class="socialMedia">
+        <p style="margin-top: 12px">Registrate con tus redes sociales:</p>
+        <div class="socialMediaButtons">
+          <img src="../../../assets/facebook.png" alt="Facebook" style="cursor: pointer">
         </div>
-        <div class="form-group row">
-          <input name="password" [(ngModel)]="password" type="password" class="form-control" placeholder="Contraseña mayor a 6 caracteres"
-            required>
+        <div class="socialMediaButtons">
+          <img src="../../../assets/google.png" alt="Google +" style="cursor: pointer">
         </div>
-        <button (click)="signup()" style="margin-right: 7px" class="btn btn-primary" type="submit" data-toggle="modal"
-          data-target="#exampleModal">Crear cuenta
-        </button>
-        <button (click)="login()" style="margin-left: 7px" class="btn btn-outline-success" type="submit">Ingresar</button>
-      </form>
+        <div class="socialMediaButtons">
+          <img src="../../../assets/linkedin.png" alt="Linkedin" style="cursor: pointer">
+        </div>
+        <div class="socialMediaButtons">
+          <img src="../../../assets/pinterest.png" alt="Painterest" style="cursor: pointer">
+        </div>
+        <div class="socialMediaButtons">
+          <img src="../../../assets/twitter.png" alt="Twitter" style="cursor: pointer">
+        </div>
+      </div>
+  
     </div>
-
-    <div class="socialMedia">
-      <p style="margin-top: 12px">Registrate con tus redes sociales:</p>
-      <div class="socialMediaButtons">
-        <img src="../../../assets/facebook.png" alt="Facebook" srcset="">
-      </div>
-      <div class="socialMediaButtons">
-        <img src="../../../assets/google.png" alt="Facebook" srcset="">
-      </div>
-      <div class="socialMediaButtons">
-        <img src="../../../assets/linkedin.png" alt="Facebook" srcset="">
-      </div>
-      <div class="socialMediaButtons">
-        <img src="../../../assets/pinterest.png" alt="Facebook" srcset="">
-      </div>
-      <div class="socialMediaButtons">
-        <img src="../../../assets/twitter.png" alt="Facebook" srcset="">
-      </div>
-    </div>
-
+  
   </div>
-
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false"
-  (click)="register()">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">¡Cuenta creada exitosa!</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Por favor revisar su correo y confirmar su inscripción.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Completar información</button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false"
+    (click)="register()">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">¡Cuenta creada exitosamente!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Por favor revisar su correo y confirmar su inscripción.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Completar información</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  
