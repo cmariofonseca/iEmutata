@@ -15,9 +15,9 @@
     <div class="viewStudent">
       <div class="logout">
         <div *ngIf="studentsList" class="input-group mb-3">
-          <select class="custom-select" id="inputGroupSelect01" (change)="selectedStudent(student)">
+          <select [(ngModel)]="currentStudent" class="custom-select" id="inputGroupSelect01" name="currentStudent">
             <option selected>Listado de estudiantes</option>
-            <option *ngFor="let student of studentsList" value="student">
+            <option [ngValue]="student" *ngFor="let student of studentsList">
               {{ student.name }} {{ student.lastName }}
             </option>
           </select>
@@ -33,21 +33,21 @@
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label for="inputState">Asignatura</label>
-                <select class="form-control">
+                <select [(ngModel)]="currentSubject" class="form-control" name="currentSubject">
                   <option selected>Seleccionar</option>
-                  <option value="maths">Matemáticas</option>
-                  <option value="social">Sociales</option>
-                  <option value="spanish">Español</option>
+                  <option [ngValue]="'Matemáticas'">Matemáticas</option>
+                  <option [ngValue]="'Sociales'">Sociales</option>
+                  <option [ngValue]="'Español'">Español</option>
                 </select>
               </div>
               <div class="form-group col-md-4">
                 <label for="inputState">Periodo academico</label>
-                <select class="form-control">
+                <select [(ngModel)]="currentPeriod" class="form-control" name="currentPeriod">
                   <option selected>Seleccionar</option>
-                  <option value="first">Primero</option>
-                  <option value="second">Segundo</option>
-                  <option value="third">Tercero</option>
-                  <option value="quarter">Cuarto</option>
+                  <option [ngValue]="'Primero'">Primero</option>
+                  <option [ngValue]="'Segundo'">Segundo</option>
+                  <option [ngValue]="'Tercero'">Tercero</option>
+                  <option [ngValue]="'Cuarto'">Cuarto</option>
                 </select>
               </div>
               <div class="form-group col-md-4">
@@ -82,8 +82,10 @@
             </div>
             <div class="form-group col-md-2">
               <label></label>
-              <button (click)="averageNotes()" type="button" class="btn btn-outline-info">
+              <button (click)="averageNotes(); saveNotesCurrentStudent()" type="button" class="btn btn-outline-info">
                 Promediar nota
+                <br>
+                subir a la BBDD
               </button>
             </div>
           </div>

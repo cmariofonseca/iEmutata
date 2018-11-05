@@ -1,9 +1,8 @@
-import { Subscription } from 'rxjs';
-import { Student } from './user.controller';
 import { AuthModel } from '../model/auth.model';
 import { Component, OnInit } from '@angular/core';
 import { StudentModel } from '../model/student.model';
 import { RegisterModel } from '../model/register.model';
+import { Student, Period, User } from './user.controller';
 
 @Component({
   selector: 'app-entry-notes',
@@ -13,18 +12,18 @@ import { RegisterModel } from '../model/register.model';
 
 export class EntryNotesComponent implements OnInit {
 
+  period: Period;
   noteOne: number;
   noteTwo: number;
   noteFour: number;
   noteFive: number;
-  student: Student;
   noteThree: number;
   totalNote: number;
+  parentsList: User[];
   currentPeriod: string;
   currentSubject: string;
   currentStudent: Student;
   studentsList: Student[];
-  ObservableStudentsList: Subscription;
 
   constructor(
     public authMdl: AuthModel,
@@ -34,30 +33,8 @@ export class EntryNotesComponent implements OnInit {
 
   ngOnInit(): void {
     this.totalNote = 0.0;
-    this.currentStudent = {
-      name: '',
-      phone: undefined,
-      userID: '',
-      lastName: '',
-      subjects: [
-        {
-          name: '',
-          periods: []
-        }
-      ]
-    };
-    this.studentMdl.listStudents().subscribe(students => {
-      this.studentsList = students;
-    });
-  }
-
-  fillStudentsList(): void {
-  }
-
-  selectedStudent(student: Student): void {
-    console.log('selectedStudent()');
-    this.currentStudent = student;
-    console.log(this.currentStudent);
+    this.studentsList = this.studentMdl.listStudents();
+    this.parentsList = this.registerMdl.listUsers();
   }
 
   logout(): void {
@@ -65,29 +42,24 @@ export class EntryNotesComponent implements OnInit {
   }
 
   averageNotes(): void {
-    console.log('averageNotes()');
-    console.log(this.totalNote);
     this.totalNote = (this.noteOne +
     this.noteTwo +
     this.noteThree +
     this.noteFour +
     this.noteFive) / 5;
-    console.log(this.totalNote);
   }
 
   saveNotesCurrentStudent(): void {
-    this.currentStudent = {
-      name: this.currentStudent.name,
-      phone: undefined,
-      userID: '',
-      lastName: '',
-      subjects: [
-        {
-          name: this.currentSubject,
-          periods: []
-        }
-      ]
+    this.period = {
+      name: this.currentPeriod,
+      notes: [this.noteOne, this.noteTwo, this.noteThree, this.noteFour, this.noteFive]
     };
+    this.currentStudent.subjects.map(subject => {
+      if (subject.name === this.currentSubject) {
+        subject.periods.push(this.period);
+      }
+    });
+    this.studentMdl.updateNotesCurrentStudent(this.currentStudent);
   }
 
 }

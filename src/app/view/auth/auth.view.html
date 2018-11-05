@@ -15,7 +15,7 @@
       </div>
   
       <div class="form">
-        <form (ngModel)="register()">
+        <form>
           <div class="form-group row">
             <input name="email" [(ngModel)]="email" type="text" class="form-control" placeholder="Email" required>
           </div>
@@ -33,19 +33,20 @@
       <div class="socialMedia">
         <p style="margin-top: 12px">Registrate con tus redes sociales:</p>
         <div class="socialMediaButtons">
-          <img src="../../../assets/facebook.png" alt="Facebook" srcset="">
+          <img src="../../../assets/facebook.png" alt="Facebook" style="cursor: pointer">
         </div>
         <div class="socialMediaButtons">
-          <img src="../../../assets/google.png" alt="Facebook" srcset="">
+          <img src="../../../assets/google.png" alt="Google +" style="cursor: pointer">
         </div>
         <div class="socialMediaButtons">
-          <img src="../../../assets/linkedin.png" alt="Facebook" srcset="">
+          <img src="../../../assets/linkedin.png" alt="Linkedin" style="cursor: pointer">
         </div>
         <div class="socialMediaButtons">
-          <img src="../../../assets/pinterest.png" alt="Facebook" srcset="">
+          <img src="../../../assets/pinterest.png" alt="Painterest" style="cursor: pointer">
         </div>
         <div class="socialMediaButtons">
-          <img src="../../../assets/twitter.png" alt="Facebook" srcset="">
+          <img src="../../../assets/twitter.png" alt="Twitter" style="cursor: pointer">
+
         </div>
       </div>
   
@@ -59,7 +60,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">¡Cuenta creada exitosa!</h5>
+          <h5 class="modal-title" id="exampleModalLabel">¡Cuenta creada exitosamente!</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

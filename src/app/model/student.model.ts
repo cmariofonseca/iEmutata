@@ -1,9 +1,8 @@
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { User, Student } from '../controller/user.controller';
-import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { Student } from '../controller/user.controller';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -11,14 +10,14 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
 
 export class StudentModel {
 
+  studentsList: Student[];
   students: Observable<Student[]>;
+  private studentsDocument: AngularFirestoreDocument<Student>;
   private studentsCollection: AngularFirestoreCollection<Student>;
 
-  constructor(
-    private router: Router,
-    private afs: AngularFirestore) {
-    this.studentsCollection = this.afs.collection<Student>('students');
-    this.students = this.studentsCollection.snapshotChanges().pipe(
+  constructor(private afs: AngularFirestore) {
+      this.studentsCollection = this.afs.collection<Student>('students');
+      this.students = this.studentsCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as Student;
         return {...data };
@@ -26,12 +25,20 @@ export class StudentModel {
     );
   }
 
-  listStudents(): Observable<Student[]> {
-    return this.students;
+  listStudents(): Student[] {
+    this.students.subscribe(students => {
+      this.studentsList = students;
+    });
+    return this.studentsList;
   }
 
   createStudent(student: Student): void {
     this.studentsCollection.add(student);
+  }
+
+  updateNotesCurrentStudent(student: Student): void {
+    this.studentsDocument = this.afs.doc<Student>(`students/${student.userID}`);
+    this.studentsDocument.update(student);
   }
 
 }

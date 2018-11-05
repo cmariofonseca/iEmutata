@@ -1,6 +1,6 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AuthModel } from 'src/app/model/auth.model';
-import { RegisterModel } from 'src/app/model/register.model';
 
 @Component({
   selector: 'app-auth',
@@ -10,16 +10,24 @@ import { RegisterModel } from 'src/app/model/register.model';
 
 export class AuthComponent implements OnInit {
 
+  closeModal: boolean;
   email: string;
   password: string;
 
-  constructor(public authMdl: AuthModel, private registerMdl: RegisterModel) { }
+  constructor(private router: Router, public authMdl: AuthModel) {
+  }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.closeModal = true;
+  }
 
   signup() {
-    this.authMdl.signup(this.email, this.password);
-    this.email = this.password = '';
+    if (this.email !== '' && this.password !== '') {
+      this.closeModal = false;
+      this.authMdl.signup(this.email, this.password);
+      this.email = this.password = '';
+      this.closeModal = true;
+    }
   }
 
   login() {
@@ -28,7 +36,7 @@ export class AuthComponent implements OnInit {
   }
 
   register() {
-    this.registerMdl.registerOfUser();
+    this.router.navigateByUrl('/register');
   }
 
 }

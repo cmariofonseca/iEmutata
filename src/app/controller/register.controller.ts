@@ -16,12 +16,12 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private auth: AuthModel,
-    private register: RegisterModel) {
+    private authMdel: AuthModel,
+    private registerMdl: RegisterModel) {
   }
 
   ngOnInit() {
-    this.auth.observer();
+    this.authMdel.observer();
     this.user = {
       name: '',
       phone: undefined,
@@ -33,8 +33,8 @@ export class RegisterComponent implements OnInit {
   }
 
   sendUserForRegister(): void {
-    this.user.userID = this.auth.userUid,
-    this.register.createUsers(this.user);
+    this.user.userID = this.authMdel.userUid,
+    this.registerMdl.createUsers(this.user);
     this.user = {
       name: '',
       phone: 0,
@@ -43,6 +43,7 @@ export class RegisterComponent implements OnInit {
       typeUser: '',
       studentDoc: ''
     };
+    this.router.navigateByUrl('/view_notes');
   }
 
 }

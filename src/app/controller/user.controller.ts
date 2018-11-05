@@ -12,15 +12,16 @@ export interface Student {
   phone: number;
   userID: string;
   lastName: string;
-  subjects: Subject[];
+  studentDoc: string;
+  subjects?: Subject[];
 }
 
-interface Subject {
+export interface Subject {
   name: string;
   periods: Period[];
 }
 
-interface Period {
+export interface Period {
   name: string;
   notes: number[];
 }
