@@ -75,4 +75,8 @@ export class ShowNotesComponent implements OnInit {
     this.authMdl.logout();
   }
 
+  /*ngOnDestroy(): void {
+    this.observableStudent;
+  }*/
+
 }
